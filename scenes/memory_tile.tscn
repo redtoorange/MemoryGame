@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://hadi87dli28b"]
+[gd_scene load_steps=7 format=3 uid="uid://hadi87dli28b"]
 
-[ext_resource type="Script" path="res://src/tile/MemoryTile.cs" id="1_qkdh8"]
+[ext_resource type="Script" path="res://src/tile/MemoryTile.cs" id="1_ldurm"]
 [ext_resource type="BoxMesh" uid="uid://otfyvjkkbh8u" path="res://meshes/box_mesh.tres" id="2_vyhgk"]
 [ext_resource type="Material" uid="uid://bbes5b42cufq5" path="res://materials/basic_material.tres" id="3_34rj5"]
-[ext_resource type="Script" path="res://src/tile/FlipController.cs" id="3_k6mm0"]
+[ext_resource type="Texture2D" uid="uid://byevrjuh3cu4x" path="res://art/textures/Apple.png" id="4_6px04"]
+[ext_resource type="Script" path="res://src/tile/FlipController.cs" id="4_kb13k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t04yj"]
 size = Vector3(1.61583, 1, 1.59826)
 
 [node name="MemoryTile" type="StaticBody3D" node_paths=PackedStringArray("tileFace")]
-script = ExtResource("1_qkdh8")
+script = ExtResource("1_ldurm")
 tileFace = NodePath("TileBody/TileFace")
 
 [node name="TileBody" type="MeshInstance3D" parent="."]
@@ -21,14 +22,16 @@ surface_material_override/0 = ExtResource("3_34rj5")
 [node name="TileFace" type="Sprite3D" parent="TileBody"]
 transform = Transform3D(-8, -1.20797e-06, 5.28019e-14, 0, -3.49691e-07, -8, 1.20797e-06, -8, 3.49691e-07, 0, -0.13, 0)
 texture_filter = 0
+render_priority = 1
+texture = ExtResource("4_6px04")
 
 [node name="TileCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_t04yj")
 
 [node name="FlipController" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
-script = ExtResource("3_k6mm0")
-targetNode = NodePath("../TileBody")
+script = ExtResource("4_kb13k")
+targetNode = NodePath("..")
 frontRotation = Vector3(0, 0, 180)
-transitionTime = 1.0
+transitionTime = 0.75
 easeType = 1
-transitionType = 11
+transitionType = 9

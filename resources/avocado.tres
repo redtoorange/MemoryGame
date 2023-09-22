@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TileTextureMapping" load_steps=3 format=3 uid="uid://b664fy4yaaau2"]
+
+[ext_resource type="Script" path="res://src/tile/TileTextureMapping.cs" id="1_j1cuc"]
+[ext_resource type="Texture2D" uid="uid://8gukyfyfye3a" path="res://art/textures/Avocado.png" id="2_o8qe6"]
+
+[resource]
+script = ExtResource("1_j1cuc")
+key = "Avocado"
+texture = ExtResource("2_o8qe6")

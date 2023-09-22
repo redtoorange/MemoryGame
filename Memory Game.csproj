@@ -1,7 +1,9 @@
 <Project Sdk="Godot.NET.Sdk/4.2.0-dev.4">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>MemoryGame</RootNamespace>
+    <TrimMode>partial</TrimMode>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
   </PropertyGroup>
 </Project>

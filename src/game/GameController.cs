@@ -12,7 +12,7 @@ public partial class GameController : Node
     [Export(PropertyHint.File, "*.tscn")] private string loseScreen;
 
     public event Action<int> OnGuessesChanged;
-
+    
     public override void _Ready()
     {
         tileController.OnAllTilesGone += HandleAllTilesGone;

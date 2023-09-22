@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqh6udgm42rgg"]
+
+[ext_resource type="Shader" path="res://shaders/outline_two.gdshader" id="1_3utoo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3utoo")
+shader_parameter/depth_threshold = 0.2
+shader_parameter/depth_normal_threshold_scale = 0.2
+shader_parameter/normal_threshold = 0.2
+shader_parameter/edge_color = Color(0.427451, 0.478431, 0.501961, 1)
+shader_parameter/scale = 1.0

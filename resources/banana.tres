@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TileTextureMapping" load_steps=3 format=3 uid="uid://brf170nknd3y3"]
+
+[ext_resource type="Script" path="res://src/tile/TileTextureMapping.cs" id="1_gmtyk"]
+[ext_resource type="Texture2D" uid="uid://svnf18uywtjk" path="res://art/textures/Banana.png" id="2_q7s5t"]
+
+[resource]
+script = ExtResource("1_gmtyk")
+key = "Banana"
+texture = ExtResource("2_q7s5t")

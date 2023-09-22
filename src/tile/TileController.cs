@@ -10,7 +10,8 @@ public partial class TileController : Node3D
     public event Action OnFailedGuess;
 
     [Export] private Array<TileTextureMapping> materialMapping;
-    [Export] private Array<MemoryTile> controlledTiles;
+    [Export] private Node3D tileParent;
+    private Array<MemoryTile> controlledTiles;
 
     [Export] private bool processing = false;
     [Export] private MemoryTile firstClickedTile;
@@ -18,7 +19,16 @@ public partial class TileController : Node3D
 
     public override void _Ready()
     {
+        controlledTiles = new Array<MemoryTile>();
+        foreach (Node child in tileParent.GetChildren())
+        {
+            if (child is MemoryTile mt)
+            {
+                controlledTiles.Add(mt);
+            }
+        }
         controlledTiles.Shuffle();
+
         Array<TileTextureMapping> materialMappingCopy = new Array<TileTextureMapping>(materialMapping);
 
         for (int i = 0; i < controlledTiles.Count; i += 2)
@@ -46,7 +56,7 @@ public partial class TileController : Node3D
 
         // Clicked same tile again
         if (tile == firstClickedTile || tile == secondClickedTile) return;
-        
+
         if (firstClickedTile == null)
         {
             firstClickedTile = tile;
@@ -64,7 +74,7 @@ public partial class TileController : Node3D
     private void HandleDoneFlipping()
     {
         secondClickedTile.GetFlipController().doneFlippingToFront -= HandleDoneFlipping;
-        
+
         if (firstClickedTile.GetTextureKey() == secondClickedTile.GetTextureKey())
         {
             GD.Print("Found Match!");
@@ -83,13 +93,13 @@ public partial class TileController : Node3D
         else
         {
             GD.Print("No Match!");
-            
+
             firstClickedTile.GetFlipController().FlipToBack();
             secondClickedTile.GetFlipController().FlipToBack();
-            
+
             OnFailedGuess?.Invoke();
         }
-        
+
         firstClickedTile = null;
         secondClickedTile = null;
         processing = false;

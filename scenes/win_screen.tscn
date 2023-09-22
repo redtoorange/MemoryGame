@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqtqxms2xvnk4"]
 
-[ext_resource type="Script" path="res://src/menus/EndGameScreen.cs" id="1_p20aj"]
+[ext_resource type="Script" path="res://src/menus/EndGameScreen.cs" id="1_qhbqe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o1y84"]
 font_size = 36
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_p20aj")
+script = ExtResource("1_qhbqe")
 playAgain = NodePath("TryAgain")
 quitButton = NodePath("QuitGame")
 gameScene = "res://scenes/main_game.tscn"
