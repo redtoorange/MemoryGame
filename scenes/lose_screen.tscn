@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://4uxn2j368fbc"]
+
+[ext_resource type="Script" path="res://src/menus/EndGameScreen.cs" id="1_ou7xw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_08a40"]
+font_size = 36
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LoseWinScreen" type="Control" node_paths=PackedStringArray("playAgain", "quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ou7xw")
+playAgain = NodePath("TryAgain")
+quitButton = NodePath("QuitGame")
+gameScene = "res://scenes/main_game.tscn"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sorry!
+You've run out of guesses."
+label_settings = SubResource("LabelSettings_08a40")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = 80.0
+offset_right = 99.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Play Again"
+
+[node name="QuitGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = 165.0
+offset_right = 103.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Quit"

@@ -1,0 +1,139 @@
+[gd_scene load_steps=25 format=3 uid="uid://chu82co22isth"]
+
+[ext_resource type="PackedScene" uid="uid://bnit2hx32ec4l" path="res://scenes/environment.tscn" id="1_8q5ng"]
+[ext_resource type="PackedScene" uid="uid://c28ffnm8n0lbx" path="res://scenes/player_controller.tscn" id="2_h0cgt"]
+[ext_resource type="PackedScene" uid="uid://hadi87dli28b" path="res://scenes/memory_tile.tscn" id="3_gv34w"]
+[ext_resource type="Script" path="res://src/tile/TileController.cs" id="4_c6swq"]
+[ext_resource type="Script" path="res://src/tile/TileTextureMapping.cs" id="6_6o6k3"]
+[ext_resource type="Texture2D" uid="uid://byevrjuh3cu4x" path="res://art/textures/Apple.png" id="6_556bi"]
+[ext_resource type="Texture2D" uid="uid://8gukyfyfye3a" path="res://art/textures/Avocado.png" id="7_70iwj"]
+[ext_resource type="Texture2D" uid="uid://daudxl02lo2q1" path="res://art/textures/Bacon.png" id="8_omsci"]
+[ext_resource type="Texture2D" uid="uid://c3p6ypd58y0vb" path="res://art/textures/Baguette.png" id="9_rv221"]
+[ext_resource type="Texture2D" uid="uid://bymkh423dts2x" path="res://art/textures/BakedBeans.png" id="10_qobqb"]
+[ext_resource type="Texture2D" uid="uid://svnf18uywtjk" path="res://art/textures/Banana.png" id="11_bla2c"]
+[ext_resource type="Texture2D" uid="uid://blowu33s247x1" path="res://art/textures/Beer.png" id="12_brsfk"]
+[ext_resource type="Texture2D" uid="uid://cyn17rmf8yh6d" path="res://art/textures/Beet.png" id="13_xdsny"]
+[ext_resource type="Script" path="res://src/game/GameController.cs" id="14_l27eq"]
+[ext_resource type="Script" path="res://src/ui/GuessDisplay.cs" id="15_yjsfb"]
+
+[sub_resource type="Resource" id="Resource_r1po2"]
+script = ExtResource("6_6o6k3")
+key = "Apple"
+texture = ExtResource("6_556bi")
+
+[sub_resource type="Resource" id="Resource_q746f"]
+script = ExtResource("6_6o6k3")
+key = "Avocado"
+texture = ExtResource("7_70iwj")
+
+[sub_resource type="Resource" id="Resource_6jvpa"]
+script = ExtResource("6_6o6k3")
+key = "Bacon"
+texture = ExtResource("8_omsci")
+
+[sub_resource type="Resource" id="Resource_f8xl3"]
+script = ExtResource("6_6o6k3")
+key = "Baguette"
+texture = ExtResource("9_rv221")
+
+[sub_resource type="Resource" id="Resource_xhqhk"]
+script = ExtResource("6_6o6k3")
+key = "BakedBeans"
+texture = ExtResource("10_qobqb")
+
+[sub_resource type="Resource" id="Resource_q4svb"]
+script = ExtResource("6_6o6k3")
+key = "Banana"
+texture = ExtResource("11_bla2c")
+
+[sub_resource type="Resource" id="Resource_jkiud"]
+script = ExtResource("6_6o6k3")
+key = "Beer"
+texture = ExtResource("12_brsfk")
+
+[sub_resource type="Resource" id="Resource_y4h8v"]
+script = ExtResource("6_6o6k3")
+key = "Beet"
+texture = ExtResource("13_xdsny")
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwyo7"]
+font_size = 24
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainGame" type="Node3D"]
+
+[node name="Environment" parent="." instance=ExtResource("1_8q5ng")]
+
+[node name="PlayerController" parent="." instance=ExtResource("2_h0cgt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.0201662)
+
+[node name="TileContainer" type="Node3D" parent="."]
+
+[node name="MemoryTile" parent="TileContainer" instance=ExtResource("3_gv34w")]
+
+[node name="MemoryTile3" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MemoryTile2" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="MemoryTile4" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="MemoryTile5" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="MemoryTile6" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="MemoryTile7" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="MemoryTile8" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="MemoryTile10" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="MemoryTile11" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="MemoryTile12" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="MemoryTile9" parent="TileContainer" instance=ExtResource("3_gv34w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="TileController" type="Node3D" parent="." node_paths=PackedStringArray("controlledTiles")]
+script = ExtResource("4_c6swq")
+materialMapping = Array[Object]([SubResource("Resource_r1po2"), SubResource("Resource_q746f"), SubResource("Resource_6jvpa"), SubResource("Resource_f8xl3"), SubResource("Resource_xhqhk"), SubResource("Resource_q4svb"), SubResource("Resource_jkiud"), SubResource("Resource_y4h8v")])
+controlledTiles = [NodePath("../TileContainer/MemoryTile"), NodePath("../TileContainer/MemoryTile3"), NodePath("../TileContainer/MemoryTile2"), NodePath("../TileContainer/MemoryTile4"), NodePath("../TileContainer/MemoryTile5"), NodePath("../TileContainer/MemoryTile6"), NodePath("../TileContainer/MemoryTile7"), NodePath("../TileContainer/MemoryTile8"), NodePath("../TileContainer/MemoryTile9"), NodePath("../TileContainer/MemoryTile10"), NodePath("../TileContainer/MemoryTile11"), NodePath("../TileContainer/MemoryTile12")]
+
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("tileController")]
+script = ExtResource("14_l27eq")
+tileController = NodePath("../TileController")
+winScreen = "res://scenes/win_screen.tscn"
+loseScreen = "res://scenes/lose_screen.tscn"
+
+[node name="GameHUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="GameHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GuessDisplay" type="Label" parent="GameHUD/Control" node_paths=PackedStringArray("gameController")]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Guesses Remaining: 6"
+label_settings = SubResource("LabelSettings_iwyo7")
+script = ExtResource("15_yjsfb")
+gameController = NodePath("../../../GameController")
+metadata/_edit_use_anchors_ = true
